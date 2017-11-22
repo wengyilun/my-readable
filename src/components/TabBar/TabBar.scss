@@ -1,0 +1,48 @@
+
+.tabBar{
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.tabBar input[type=radio]{
+  display: none;
+}
+
+.tabBar label{
+  padding: 8px 16px;
+  border-radius: 6px 6px 0 0;
+  margin-right: 8px;
+  cursor: pointer;
+  font-family: 'helvetica nueu', sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+  text-align: center;
+}
+
+@media (min-width: 412px) and (max-width: 920px){
+  .tabBar label{
+    padding: 8px 16px;
+    margin-right: 2px;
+    line-height:1em;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+}
+
+
+@media(max-width: 411px) {
+  .tabBar label{
+    padding: 6px 15px;
+    line-height: 1.2em;
+    font-size: 0.8em;
+    margin-right: 1px;
+  }
+
+  .tabBar label{
+    padding: 8px 12px;
+    margin-right: 2px;
+    line-height:1em;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+}

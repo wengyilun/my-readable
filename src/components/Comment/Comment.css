@@ -1,0 +1,16 @@
+.comment-item {
+  border: 1px solid #5c604b;
+  padding: 10px;
+  margin: 10px 0;
+  position: relative; }
+
+.commentDate {
+  margin-right: 10px; }
+
+.commentBody {
+  margin-bottom: 10px; }
+
+.comment-item-top {
+  position: absolute;
+  right: 10px;
+  top: 10px; }

@@ -1,0 +1,525 @@
+@import url('http://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('http://fonts.googleapis.com/css?family=Josefin+Slab');
+
+/**{*/
+/*outline: 1px solid red;*/
+/*}*/
+.App {
+  display: flex;
+  position: relative;
+  background:white;
+  margin:0px auto;
+  border: 24px solid #5c604b;
+  min-height:100vh;
+  overflow:auto;
+  box-shadow: 2px -3px 8px rgba(0, 0, 0, 0.3), 10px 3px 8px rgba(0, 0, 0, 0.02);
+  max-width: 920px;
+}
+
+
+.main-nav {
+  flex: 1;
+  padding: 20px;
+  background-color: #E9D0D1;
+  position: fixed;
+  z-index: 100;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+  transition: transform 0.3s;
+  will-change: transform;
+  top:0;
+  left: -200px;
+  width: 200px;
+}
+
+.main-nav.hidden{
+  transform: translateX(0);
+}
+
+.main-nav.visible{
+  transform: translateX(300px);
+}
+
+.main-content{
+  flex: 5;
+  width: 100%;
+  /*min-height:100vh;*/
+  position: absolute;
+  display:flex;
+  flex-direction: column;
+}
+
+/* Hanburger
+-------------- */
+.header__menu {
+  display: inline-block;
+  position: absolute;
+  left: 0.8em;
+  top: 0.8em;
+  cursor: initial;
+  background-color: red;
+}
+
+.menu_icon {
+  width: 32px;
+  height: 32px;
+  border: none;
+  text-indent: -10000px;
+  border-radius: 0;
+  fill: #E0E0E0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+.menu_icon:hover {
+  -webkit-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1); }
+.menu_icon.contract {
+  background: url(../images/ic_hamburglar_24px.svg) center center no-repeat; }
+.menu_icon.expand {
+  fill: #E0E0E0;
+  background: url(../images/ic_close_24px.svg) center center no-repeat; }
+
+/*  Header
+-------------- */
+.headerBar{
+  position: relative;
+  height: 80px;
+}
+.logoBar{
+  font-family:'Amatic SC', serif;
+  position: absolute;
+  top: .2em;
+  left: 3.8em;
+}
+.logo{
+  font-size: 32px;
+  padding-bottom: 0;
+  margin-bottom: 0px;
+}
+.tagline {
+  font-size: 16px;
+  font-family: 'Josefin Slab', sans-serif;
+
+}
+.loginBar{
+  font-family: 'Josefin Slab', sans-serif;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  font-size:16px;
+  color: #000;
+  font-weight: lighter;
+}
+
+.bannerBar{
+  margin-left:2.8em;
+  margin-right:2.8em;
+  text-align: center;
+}
+
+.banner {
+  width: 100%;
+  height: 220px;
+  display:inline-block;
+  background: pink url('../images/banner_cat.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-radius: 14px;
+  background-size: cover;
+}
+
+
+/*  Modal
+---------------- */
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.modal {
+  position: absolute;
+  top: 80px;
+  left: 3em;
+  right: 3em;
+  bottom: 60px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,.24), 0 3px 12px 0 rgba(0,0,0,.12);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.closeButton{
+  position:absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/* Add Post
+----------------- */
+.addPostForm{
+  display:flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+.addPostForm label{
+  font-size: .9em;
+}
+
+.addPostForm > input {
+  height: 30px;
+  border-radius: 4px;
+  outline: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.addPostForm h2{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bodyInput{
+  height:300px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.categorySelect{
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.addPostForm .submitButton{
+  margin-top: 20px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+
+
+/*  Searh Bar
+---------------- */
+.postContainer{
+  margin: 0 2.8em;
+}
+
+.postMessage{
+  padding: 20px;
+  text-align: center;
+}
+
+
+/*  Post
+------------ */
+.postListContainer {
+  width: 100%;
+  /*height: 100%;*/
+  /*background-color: #E5E7F5;*/
+}
+
+.postItem{
+  width: 100%;
+  display: flex;
+  border: 1px solid rgba(175, 157, 128, 0.3);
+  border-radius: 4px;
+  padding:10px 14px;
+}
+
+.postDate{
+  font-size: 0.8em;
+  margin-right:4px;
+}
+
+.postItemAuthor{
+  min-width: 120px;
+  border-right: 1px solid #EAD5D7;
+  position: relative;
+  margin-right: 4px;
+}
+
+.authorName{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  background-color: #E6F7EF;
+  font-size: 12px;
+  bottom: 0px;
+}
+
+.authorImage{
+  min-width: 60px;
+  height: 100px;
+  border-radius: 50%;
+  background: url('../images/person.svg');
+  background-size: 32px 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.postItemBody {
+  width: 100%;
+  position: relative;
+}
+
+.postItemBody nav{
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+.editButton{
+  margin-right: 10px;
+  margin-top: 1px;
+}
+.addPostButton{
+  margin-right: 10px;
+  margin-top: 1px;
+  padding: 2px;
+}
+
+.iconButton{
+  background-color:#5c604b;
+  color: white;
+  outline: none;
+  border-radius:4px;
+  text-align: center;
+}
+
+.postItemBodyMain
+{
+  margin: 1em 1.2em 1em 1.2em;
+}
+
+.postItemBodyMain header{
+  font-size: 19px;
+}
+
+.postItemBodyMain p{
+  font-size: 14px;
+  /*border-top: 1px solid #EAD5D7;*/
+  padding-top: 10px;
+}
+
+.postItemBodyMain footer{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  font-size: 12px;
+}
+
+.postItemBodyMain div{
+  margin-right: 40px;
+}
+// Commentlist
+.commentList{
+  margin: 1em 1.2em 1em 1.2em;
+}
+.addCommentBar{
+  display: flex;
+  justify-content: space-between;
+   input {
+    flex:3;
+    padding: 10px;
+  }
+   button {
+    flex: 1
+  }
+}
+/* footer
+------------------ */
+.footerBar{
+  text-align:center;
+  width: 100%;
+  height: 46px;
+  background-color: #101a13;
+  color: white;
+  padding-top: 12px;
+  font-size: 0.8em;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+/* Media Query
+-------------------*/
+
+@media (min-width: 921px){
+  .App {
+    flex-direction: row;
+  }
+  .banner {
+    /*width: 90%;*/
+    /*background-size: 100%;*/
+  }
+}
+
+@media (min-width: 412px) and (max-width: 920px){
+  .App {
+    flex-direction: column;
+  }
+  .main-nav{
+    position: absolute;
+    height: 100%;
+  }
+  .banner {
+    width: 100%;
+  }
+  .postItemAuthor{
+    display: none;
+  }
+  .postItemBodyMain header
+  {
+    /*margin: 2.1em .2em .2em .2em;*/
+  }
+
+
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .modal {
+    top: 20px;
+    left:  20px;
+    right:  20px;
+    bottom:  20px;
+    min-width: initial;
+  }
+  .bodyInput{
+    height: 70px;
+  }
+
+  .loginBar{
+    top: 10px;
+    right: 14px;
+    font-size:18px;
+    font-weight: bold;
+  }
+  .bannerBar{
+    margin-left:1em;
+    margin-right:1em;
+  }
+  .loginBar{
+    font-weight: bold;
+  }
+  .postContainer{
+    margin: 0 1em;
+  }
+
+}
+
+
+// Tooltip
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media(max-width: 411px) {
+  .App {
+    flex-direction: column;
+    max-width:unset;
+    margin: 0;
+    border-top: 24px solid #5c604b;
+  }
+  .main-nav{
+    position: absolute;
+    height: 100%;
+  }
+  .banner {
+    height: 100px;
+    width: 100%;
+    border-radius:4px;
+  }
+
+  .postItemAuthor{
+    display: none;
+  }
+
+
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .modal {
+    top: 20px;
+    left:  20px;
+    right:  20px;
+    bottom:  20px;
+    padding: 20px;
+    min-width: initial;
+  }
+  .addPostForm{
+    padding-top: 10px;
+  }
+
+  .bodyInput{
+    height: 70px;
+  }
+  .addPostForm .submitButton{
+    margin-top: 10px;
+    height: 50px;
+  }
+  .loginBar{
+    top: 14px;
+    right: 14px;
+    font-size:18px;
+    font-weight: bold;
+  }
+
+  .bannerBar{
+    margin-left:1em;
+    margin-right:1em;
+  }
+  .loginBar{
+    font-weight: bold;
+  }
+  .postContainer{
+    margin: 0 1em;
+  }
+
+  .active{
+    background: tomato;
+  }
+}

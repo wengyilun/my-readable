@@ -1,0 +1,86 @@
+/*  Searh Bar
+---------------- */
+.searchBar {
+  margin: 1em 2.8em;
+  display: flex; }
+
+.searchBar div {
+  flex: 1;
+  margin: 0 2px; }
+
+div.sortSelectContainer, div.addButton {
+  flex: 1; }
+
+div.searchInputContainer {
+  flex: 3; }
+
+.searchInput, .sortSelect, .addButton {
+  width: 98%;
+  height: 50px;
+  border-radius: 20px;
+  outline: none;
+  border: 6px solid #EEDCDD;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  padding: 0 1.2em;
+  font-size: 0.8em; }
+
+.searchInput {
+  background-image: url("../../images/search.svg");
+  background-repeat: no-repeat;
+  background-position: 99% 50%;
+  background-size: 2.6em;
+  padding-left: 3em; }
+
+.addButton {
+  display: flex;
+  background-color: #fff;
+  background-image: url("../../images/plus.svg");
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+  background-size: 18px;
+  text-align: center;
+  padding: 0; }
+
+.addButton a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  padding-top: 10px; }
+
+@media (min-width: 412px) and (max-width: 920px) {
+  .searchBar {
+    margin: 1em; }
+  .searchInput, .sortSelect, .addButton {
+    font-size: 1em;
+    height: 60px; }
+  .searchInput {
+    background-size: 1.6em;
+    padding-left: 1em;
+    height: 60px;
+    font-size: 1.2em; }
+  .addButton {
+    font-size: 0;
+    width: 40px;
+    height: 60px;
+    background-position: center; } }
+
+@media (max-width: 411px) {
+  .searchBar {
+    margin: 1em; }
+  .searchInput, .sortSelect, .addButton {
+    font-size: 1em; }
+  .searchInput {
+    background-size: 1.6em;
+    padding-left: 1em;
+    height: 60px; }
+  .addButton {
+    font-size: 0;
+    width: 60px;
+    height: 60px;
+    background-position: center; }
+  .sortSelect {
+    font-size: 0;
+    width: 60px;
+    height: 60px;
+    background-position: center; } }

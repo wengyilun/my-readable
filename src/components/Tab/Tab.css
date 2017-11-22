@@ -1,0 +1,43 @@
+.tab-all {
+  background: #F6F6E5; }
+
+.tab-strayed {
+  background: #E3F5EE; }
+
+.tab-roadkill {
+  background: #F8E9E5; }
+
+.tab-abused {
+  background: #E5E7F5; }
+
+.tab-all-active {
+  background: #F6F6E5; }
+
+.tab-strayed-active {
+  background: #E3F5EE; }
+
+.tab-roadkill-active {
+  background: #F8E9E5; }
+
+.tab-abused-active {
+  background: #E5E7F5; }
+
+.strayed-color-bar {
+  background: #E3F5EE;
+  height: 30px;
+  text-align: right; }
+
+.roadkill-color-bar {
+  background: #F8E9E5;
+  height: 30px;
+  text-align: right; }
+
+.all-color-bar {
+  background: #F6F6E5;
+  height: 30px;
+  text-align: right; }
+
+.abused-color-bar {
+  background: #E5E7F5;
+  height: 30px;
+  text-align: right; }
