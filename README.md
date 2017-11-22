@@ -1,4 +1,4 @@
-## MyRead: A Readable App
+## MyReadable: A Readable App
 ---------------
 
 This is a ReactJs project created for **Udacity's ReactJS Nanodegree Program**. 
