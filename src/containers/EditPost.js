@@ -17,10 +17,10 @@ class EditPost extends Component {
 	
 	componentDidMount(){
 		this.setState({
-			id: this.props.data.id,
-			title:  this.props.data.title,
-			body: this.props.data.body,
-			category_id: this.props.data.category_id
+			id: this.props.currentPost.id,
+			title:  this.props.currentPost.title,
+			body: this.props.currentPost.body,
+			category_id: this.props.currentPost.category_id
 		})
 	}
 	
@@ -82,10 +82,6 @@ class EditPost extends Component {
 		)
 	}
 }
-// const mapStateToProps = state => {
-// 	return {
-// 	}
-// }
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		onSubmitClick: ({id, title, body, category_id})=> {

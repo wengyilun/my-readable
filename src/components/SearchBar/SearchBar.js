@@ -6,6 +6,8 @@ import { openModal,searchSubmitted} from '../../actions'
 import {connect } from 'react-redux'
 import {PropTypes} from 'prop-types'
 import './SearchBar.css'
+import AddPost from '../../containers/AddPost'
+import EditPost from '../../containers/EditPost'
 
 class SearchBar extends Component{
 	state = {
@@ -60,16 +62,10 @@ class SearchBar extends Component{
 	}
 }
 
-const mapStateToProps = (state, ownProps) => {
-	return {
-	
-	}
-}
-
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		onAddPostClicked: () => {
-			dispatch(openModal({shouldOpen:true, mode:'addPost'}))
+			dispatch(openModal({shouldOpen:true, component:AddPost}))
 		},
 		onSearchSubmit: (query)=>{
 			dispatch(searchSubmitted(query))
@@ -83,7 +79,7 @@ SearchBar.propTypes = {
 }
 
 SearchBar = connect(
-	mapStateToProps,
+	null,
 	mapDispatchToProps
 )(SearchBar)
 

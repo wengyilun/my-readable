@@ -27,9 +27,9 @@
   overflow: hidden;
   transition: transform 0.3s;
   will-change: transform;
-  top:0;
-  left: -200px;
-  width: 200px;
+  top:60px;
+  left: -100px;
+  width: 100px;
 }
 
 .main-nav.hidden{
@@ -37,14 +37,14 @@
 }
 
 .main-nav.visible{
-  transform: translateX(300px);
+  transform: translateX(100px);
 }
 
 .main-content{
   flex: 5;
   width: 100%;
   /*min-height:100vh;*/
-  position: absolute;
+  //position: absolute;
   display:flex;
   flex-direction: column;
 }
@@ -56,7 +56,7 @@
   position: absolute;
   left: 0.8em;
   top: 0.8em;
-  cursor: initial;
+  cursor: hand;
   background-color: red;
 }
 
@@ -276,9 +276,14 @@
   top: 4px;
   right: 4px;
 }
+.top-right{
+  position: absolute;
+  top:4px;
+  right:8px;
+}
 
 .editButton{
-  margin-right: 10px;
+  margin-right: 20px;
   margin-top: 1px;
 }
 .addPostButton{
@@ -334,6 +339,15 @@
    button {
     flex: 1
   }
+}
+
+.comment-item{
+  position: relative;
+}
+
+.commentBodyInput{
+  width: 200px;
+  padding: 8px;
 }
 /* footer
 ------------------ */

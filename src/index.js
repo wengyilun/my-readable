@@ -6,8 +6,10 @@ import registerServiceWorker from './registerServiceWorker';
 import {createStore, applyMiddleware, compose} from 'redux';
 import mougogoApp from './reducers';
 import {Provider} from 'react-redux';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Route } from 'react-router-dom'
 import thunk from 'redux-thunk';
+import PostList from './components/PostList';
+import Post from './components/Post';
 // import logger from 'redux-logger'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 

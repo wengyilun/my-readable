@@ -83,6 +83,16 @@ export const addComment = (comment) => {
 		.then((res) => res.data)
 }
 
+export const editComment = (comment) => {
+	const {parentId, body, id} = comment
+	return api.put(`/comments/${id}`, {
+		last_edited:new Date().getTime(),
+		body,
+		parentId,
+	})
+	.then((res) => res.data)
+}
+
 export const fetchComments = () => {
 	return api.get(`/comments`)
 	.then((res) => res.data)

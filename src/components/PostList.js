@@ -90,7 +90,6 @@ class PostList extends Component{
 					<ul>
 						{searchedResult.map(post => (
 							<Post key={post.id} {...post}
-								  onClick={() => onDeletePost(post.id)}
 							/>
 						))}
 					</ul>
@@ -137,7 +136,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		onDeletePost: (id) => {dispatch(onDeletePost(id))},
-		onAddPost: () => {dispatch(openModal({shouldOpen:true, mode:'addPost'}))}
+		onAddPost: () => {dispatch(openModal({shouldOpen:true, mode:'AddPost'}))}
 	}
 }
 

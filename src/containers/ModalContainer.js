@@ -4,10 +4,9 @@
 import { connect } from 'react-redux'
 import {openModal} from '../actions'
 import React  from 'react'
-import AddPost from './AddPost'
-import EditPost from './EditPost'
+
 import Modal from 'react-modal'
-let ModalContainer = ({mode, shouldOpen, closeModal, currentPost, categoryId, categories}) => {
+let ModalContainer = ({Component, shouldOpen, closeModal, data}) => {
 		return (
 			<Modal
 				className='modal'
@@ -17,9 +16,7 @@ let ModalContainer = ({mode, shouldOpen, closeModal, currentPost, categoryId, ca
 				contentLabel='Modal'
 			>
 				<a className="closeButton" onClick={closeModal}>close</a>
-				{mode === 'addPost'
-				 ?	<AddPost submit={closeModal} categoryId={categoryId} categories={categories}/>
-				 :  <EditPost submit={closeModal} data={currentPost} categories={categories}/>}
+				<Component submit={closeModal} {...data}/>
 			</Modal>
 		)
 }
@@ -28,10 +25,12 @@ let ModalContainer = ({mode, shouldOpen, closeModal, currentPost, categoryId, ca
 function mapStateToProps(state, ownProps){
 	return {
 		shouldOpen: state.modal.shouldOpen,
-		mode: state.modal.mode,
-		currentPost: state.currentPost,
-		// categoryId: state.categories && state.categories.filter(category => category.name === state.visibilityFilter).id,
-		categories: state.categories
+		Component: state.modal.component,
+		data:{
+			currentPost: state.currentPost,
+			categoryId: state.categories && state.categories.filter(category => category.name === state.visibilityFilter).id,
+			categories: state.categories
+		}
 	}
 }
 

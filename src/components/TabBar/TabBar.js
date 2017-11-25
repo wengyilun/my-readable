@@ -22,13 +22,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		// onClick: () => {
-		// 	dispatch(setVisibilityFilter(ownProps.name))
-		// }
-	}
-}
 
 TabBar.propTypes = {
 	categories: PropTypes.arrayOf(
@@ -42,5 +35,5 @@ TabBar.propTypes = {
 
 export default TabBar = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	null
 )(TabBar)

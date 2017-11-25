@@ -50,13 +50,12 @@ body {
   background-color:#121212;
   font: 1em/1.5 'helvetica neue', helvetica, arial, sans-serif;
   -webkit-text-size-adjust: 100%;
-  overflow:hidden;
 }
 
-/*#root{*/
-/*min-height:100vh;*/
-/*overflow: auto;*/
-/*}*/
+root{
+  min-height:100vh;
+  overflow: auto;
+}
 
 li, ol, ul, nav{
   list-style: none;

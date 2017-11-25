@@ -7,14 +7,15 @@ import {capitalize} from '../../utils/helpers'
 import {setVisibilityFilter} from '../../actions'
 import {connect} from 'react-redux'
 import './Tab.css'
+import NavLink from '../NavLink'
+
 let Tab = ({active, name, filter, count, onTabClick}) => {
 	let labelClass = `tab-${name}`
 	if (active) {
 		labelClass =  `tab-${name}-active`
 	}
-
 	return (
-		<a className="tabButton" href={`/${name}` }
+		<NavLink className="tabButton" to={`/:${name}/posts`}
 		   onClick={e => {
 			   e.preventDefault()
 			   onTabClick()
@@ -25,7 +26,7 @@ let Tab = ({active, name, filter, count, onTabClick}) => {
 				{capitalize(name)} 
 			</label>
 			
-		</a>
+		</NavLink>
 	)
 }
 const mapStateToProps = (state, ownProps) => {

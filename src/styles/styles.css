@@ -48,13 +48,12 @@ body {
   color: #4A4A4A;
   background-color: #121212;
   font: 1em/1.5 'helvetica neue', helvetica, arial, sans-serif;
-  -webkit-text-size-adjust: 100%;
-  overflow: hidden; }
+  -webkit-text-size-adjust: 100%; }
 
-/*#root{*/
-/*min-height:100vh;*/
-/*overflow: auto;*/
-/*}*/
+root {
+  min-height: 100vh;
+  overflow: auto; }
+
 li, ol, ul, nav {
   list-style: none; }
 
@@ -92,21 +91,20 @@ a {
   overflow: hidden;
   transition: transform 0.3s;
   will-change: transform;
-  top: 0;
-  left: -200px;
-  width: 200px; }
+  top: 60px;
+  left: -100px;
+  width: 100px; }
 
 .main-nav.hidden {
   transform: translateX(0); }
 
 .main-nav.visible {
-  transform: translateX(300px); }
+  transform: translateX(100px); }
 
 .main-content {
   flex: 5;
   width: 100%;
   /*min-height:100vh;*/
-  position: absolute;
   display: flex;
   flex-direction: column; }
 
@@ -117,7 +115,7 @@ a {
   position: absolute;
   left: 0.8em;
   top: 0.8em;
-  cursor: initial;
+  cursor: hand;
   background-color: red; }
 
 .menu_icon {
@@ -278,7 +276,8 @@ a {
   padding: 10px 14px; }
 
 .postDate {
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  margin-right: 4px; }
 
 .postItemAuthor {
   min-width: 120px;
@@ -312,8 +311,13 @@ a {
   top: 4px;
   right: 4px; }
 
+.top-right {
+  position: absolute;
+  top: 4px;
+  right: 8px; }
+
 .editButton {
-  margin-right: 10px;
+  margin-right: 20px;
   margin-top: 1px; }
 
 .addPostButton {
@@ -353,12 +357,19 @@ a {
 
 .addCommentBar {
   display: flex;
-  align-items: stretch; }
+  justify-content: space-between; }
   .addCommentBar input {
     flex: 3;
-    padding: 4px 6px; }
+    padding: 10px; }
   .addCommentBar button {
     flex: 1; }
+
+.comment-item {
+  position: relative; }
+
+.commentBodyInput {
+  width: 200px;
+  padding: 8px; }
 
 /* footer
 ------------------ */
@@ -416,6 +427,41 @@ a {
     font-weight: bold; }
   .postContainer {
     margin: 0 1em; } }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; }
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s; }
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent; }
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1; }
 
 @media (max-width: 411px) {
   .App {

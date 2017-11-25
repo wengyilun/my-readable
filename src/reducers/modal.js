@@ -8,7 +8,7 @@ function modal(state = {}, action){
 		 case OPEN_MODAL:
 			 return Object.assign({}, state, {
 				 shouldOpen: action.shouldOpen,
-				 mode: action.mode
+				 component: action.component
 			 })
 		 default:
 			 return state

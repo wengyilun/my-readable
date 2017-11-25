@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom'
+import {Route, withRouter} from 'react-router-dom'
 import {fetchCategories, fetchPosts, fetchComments} from '../utils/PostsAPI'
 import { connect } from 'react-redux';
 import {categoryFetched, postFetched, commentsFetched, } from '../actions'
@@ -7,7 +7,9 @@ import Nav from './Nav'
 import Header from './Header'
 import TabBar from './TabBar'
 import PostList from './PostList'
-import AddPost from '../containers/AddPost'
+import Posts from '../pages/Posts'
+import PostDetail from '../pages/PostDetail'
+import Home from '../pages/Home'
 import ModalContainer from '../containers/ModalContainer'
 
 
@@ -42,22 +44,12 @@ class App extends Component {
 	render(){
 		return (
 			<div className="App" >
-				<Nav/>
-				
 				<ModalContainer/>
+				<Header/>
+				<Nav/>
 				<div className="main-content">
-					<Header/>
-					<Route exact path="/" render={() => (
-						<section className="postContainer">
-							<TabBar/>
-							<PostList/>
-						</section>
-					)}/>
-					<Route exact path="/addPost" render={() => (
-						<section className="postContainer">
-							<AddPost />
-						</section>
-					)}/>
+					<Route exact path="/" component={Home} />
+					<Route path="/posts" component={Posts}/>
 				</div>
 			</div>
 		)
@@ -71,6 +63,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	}
 }
 
-export default connect(
+export default withRouter(connect(
 	null, mapDispatchToProps
-)(App)
+)(App))
