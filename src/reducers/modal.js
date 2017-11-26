@@ -1,7 +1,7 @@
 /**
  * Created by mbp on 29/10/2017.
  */
-import { OPEN_MODAL } from '../actions'
+import { OPEN_MODAL } from '../actions/actionTypes'
 
 function modal(state = {}, action){
 	switch (action.type){

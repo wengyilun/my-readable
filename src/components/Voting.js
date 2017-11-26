@@ -3,7 +3,8 @@
  */
 import FaHandODown from 'react-icons/lib/fa/hand-o-down';
 import FaHandOUp from 'react-icons/lib/fa/hand-o-up';
-import { onPostVoteUpdate, onCommentVoteUpdate} from '../actions'
+import { onPostVoteUpdate} from '../actions/postActions'
+import { onCommentVoteUpdate} from '../actions/commentActions'
 import {connect} from 'react-redux'
 import React from 'react'
 
@@ -27,5 +28,4 @@ let Voting = ({dispatch, type, voteScore, id}) => (
 							}}/>
 		</div>
 )
-Voting = connect()(Voting)
-export default Voting
+export default Voting = connect()(Voting)

@@ -7,7 +7,8 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
-import {onDeletePost,openModal} from '../actions'
+import {openModal} from '../actions'
+import {onDeletePost} from '../actions/postActions'
 
 class PostList extends Component{
 	state = {
@@ -21,7 +22,7 @@ class PostList extends Component{
 	
 	render(){
 		const {posts, filter, searchQuery} = this.props
-		let colorBar = `${filter}-color-bar`
+		const colorBar = `${filter}-color-bar`
 		let searchedResult
 		let sel
 		

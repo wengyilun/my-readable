@@ -82,5 +82,4 @@ SearchBar = connect(
 	mapDispatchToProps
 )(SearchBar)
 
-
 export default SearchBar

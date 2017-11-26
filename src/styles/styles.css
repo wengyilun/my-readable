@@ -261,7 +261,7 @@ a {
   padding: 20px;
   text-align: center; }
 
-/* Sort
+/* Loading
 ------------ */
 .loading {
   align-self: center;
@@ -277,6 +277,16 @@ a {
 ------------ */
 .postListContainer {
   width: 100%; }
+
+.closePostDetail {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-image: url("../images/arrow-back.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  font-size: 0; }
 
 .postItem {
   width: 100%;
@@ -304,13 +314,16 @@ a {
   bottom: 0px; }
 
 .authorImage {
-  min-width: 60px;
-  height: 100px;
+  min-width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: url("../images/person.svg");
   background-size: 32px 32px;
   background-position: center;
   background-repeat: no-repeat; }
+
+.authorImageContainer {
+  display: flex; }
 
 .postItemBody {
   width: 100%;
@@ -411,8 +424,6 @@ a {
     height: 100%; }
   .banner {
     width: 100%; }
-  .postItemAuthor {
-    display: none; }
   .postItemBodyMain header {
     /*margin: 2.1em .2em .2em .2em;*/ }
   .overlay {

@@ -7,12 +7,12 @@ import PropTypes from 'prop-types'
 import FaCommentO from 'react-icons/lib/fa/comment-o';
 import FaTrash from 'react-icons/lib/fa/trash';
 import FaEdit from 'react-icons/lib/fa/edit';
-import {onDeletePost, openModal, onViewPostDetail, onEditPost} from '../../actions'
+import {openModal} from '../../actions'
+import {onDeletePost, onViewPostDetail, onEditPost} from '../../actions/postActions'
 import {Link} from 'react-router-dom'
 import EditPost from "../../containers/EditPost"
 import Voting from '../Voting'
 import {convertToDate} from '../../utils/helpers'
-
 
 let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, voteScore, created_datetime, last_edited}) => (
 	<div className="postItem">

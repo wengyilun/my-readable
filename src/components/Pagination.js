@@ -19,11 +19,12 @@ class Pagination extends Component {
 		const {itemsPerPage} = this.state
 		const {total, onPagerChange} = this.props
 		
-		let message
-		if (total > 0) {
-			message = `Showing ${itemsPerPage < total ? itemsPerPage : total } of ${total} books`
-		} else {
-			message = 'No book to display'
+		const message = () =>{
+			if (total > 0) {
+				return `Showing ${itemsPerPage < total ? itemsPerPage : total } of ${total} books`
+			} else {
+				return 'No book to display'
+			}
 		}
 		
 		return(

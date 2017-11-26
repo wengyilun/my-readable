@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {onDeleteComment, onEditComment} from '../../actions'
+import {onDeleteComment, onEditComment} from '../../actions/commentActions'
 import Voting from '../Voting'
 import {convertToDate} from '../../utils/helpers'
 import './Comment.css'
@@ -86,5 +86,4 @@ class Comment extends Component {
 		)
 	}
 }
-Comment = connect()(Comment)
-export default Comment
+export default Comment = connect()(Comment)

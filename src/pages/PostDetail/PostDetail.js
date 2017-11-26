@@ -3,13 +3,15 @@
  */
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchSinglePostRequest} from '../../actions'
+import {fetchSinglePostRequest} from '../../actions/postActions'
 import AddComment from "../../containers/AddComment"
 import Comment from "../../components/Comment"
 import Voting from '../../components/Voting'
 import FaCommentO from 'react-icons/lib/fa/comment-o';
 import {convertToDate} from '../../utils/helpers'
+import ImageInput from '../../utils/ImageInput'
 import Loading from 'react-loading'
+import {Link} from 'react-router-dom'
 
 class PostDetail extends Component {
 	componentWillMount (){
@@ -25,11 +27,20 @@ class PostDetail extends Component {
 				    <Loading type='spin' color='#fff' className='loading' />
 				  </div>
 				:
-			<div>Post Detail
+			<div>
+				<Link className='closePostDetail' to='/'>Close</Link>
 				<main className="postItemBodyMain">
-					<div><span className="postDate">{created_datetime &&  convertToDate(created_datetime)}</span>
-						{last_edited > 0 && (
-							<span className="postDate"> Last edited on:{last_edited && convertToDate(last_edited)}</span>)}
+					<div className="authorImageContainer">
+						<ImageInput
+							className='authorImage'
+							name='avatarURL'
+							maxHeight={64}
+						/>
+						<div>
+							<div className="postDate">{created_datetime &&  convertToDate(created_datetime)}</div>
+							{last_edited > 0 && (<div className="postDate"> Last edited on:{last_edited && convertToDate(last_edited)}</div>)}
+							<div className="author">ellen</div>
+						</div>
 					</div>
 					<p>{body}</p>
 					<footer>

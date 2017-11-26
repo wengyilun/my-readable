@@ -3,7 +3,7 @@
  */
  import React, {Component} from 'react'
  import {connect} from 'react-redux'
- import {onAddComment} from '../actions'
+ import {onAddComment} from '../actions/commentActions'
  
 class AddComment extends Component {
 	state = {
@@ -39,5 +39,4 @@ class AddComment extends Component {
 		)
 	}
 }
-AddComment = connect()(AddComment)
-export default AddComment
+export default  AddComment = connect()(AddComment)

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {Route, withRouter} from 'react-router-dom'
 import {fetchCategories, fetchPosts, fetchComments} from '../utils/PostsAPI'
 import { connect } from 'react-redux';
-import {categoryFetched, postFetched, commentsFetched, } from '../actions'
+import {categoryFetched } from '../actions'
+import {postFetched} from '../actions/postActions'
+import {commentsFetched, } from '../actions/commentActions'
 import Nav from './Nav'
 import Header from './Header'
 import Posts from '../pages/Posts'
@@ -15,7 +17,6 @@ import Loading from 'react-loading'
 // TODO: Add Login
 // TODO: Add Author
 // TODO: Add History
-// TODO: Add Loader
 // TODO: Add MediaQuery
 // TODO: Add Database
 

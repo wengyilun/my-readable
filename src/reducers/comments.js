@@ -1,8 +1,14 @@
 /**
  * Created by mbp on 05/11/2017.
  */
-import { ADD_COMMENT, COMMENTS_FETCHED, COMMENT_DELETED, UPDATE_COMMENT_VOTE, COMMENT_EDITED } from '../actions'
-let initialState=[]
+import {
+ADD_COMMENT,
+COMMENTS_FETCHED,
+COMMENT_DELETED,
+UPDATE_COMMENT_VOTE,
+COMMENT_EDITED } from '../actions/actionTypes'
+
+const initialState=[]
 
 function comments(state=initialState, action){
 	

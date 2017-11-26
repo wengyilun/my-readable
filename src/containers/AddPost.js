@@ -3,7 +3,8 @@
  */
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {addPostRequest, openModal} from '../actions'
+import {openModal} from '../actions'
+import {addPostRequest} from '../actions/postActions'
 
 class AddPost extends Component {
 	render(){
@@ -43,5 +44,4 @@ class AddPost extends Component {
 	}
 }
 
-AddPost = connect()(AddPost)
-export default AddPost
+export default AddPost = connect()(AddPost)

@@ -1,13 +1,11 @@
 import {
 ADD_POST,
 DELETE_POST,
-UPDATE_POST,
 DO_VOTE,
 POST_FETCHED,
 POST_ADDED,
 POST_EDITED,
-UPDATE_POST_VOTE } from '../actions'
-import * as api from '../utils/PostsAPI'
+UPDATE_POST_VOTE } from '../actions/actionTypes'
 
 const initialPostState = [
 	// {   id: 1,
@@ -81,8 +79,6 @@ function posts(state = initialPostState, action){
 				}
 			]
 			
-		// case ADD_COMMENT:
-		// 	idx = state.findIndex((post)=>(post.id === action.post_id))
 		
 		default:
 			return state

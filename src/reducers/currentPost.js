@@ -1,4 +1,7 @@
-import { ON_EDIT_POST, ON_VIEW_POST_DETAIL, SINGLE_POST_FETCHED } from '../actions'
+import {
+ON_EDIT_POST,
+ON_VIEW_POST_DETAIL,
+SINGLE_POST_FETCHED } from '../actions/actionTypes'
 
 function currentPost(state=null, action){
 	switch (action.type){

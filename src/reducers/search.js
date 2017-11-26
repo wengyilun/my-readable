@@ -1,7 +1,7 @@
 /**
  * Created by mbp on 12/11/2017.
  */
-import {UPDATE_SEARCH_QUERY} from '../actions'
+import {UPDATE_SEARCH_QUERY} from '../actions/actionTypes'
 
 const search = (state = "", action) => {
 	switch (action.type) {

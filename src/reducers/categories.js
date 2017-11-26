@@ -1,7 +1,7 @@
 
-import { CATEGORY_FETCHED } from '../actions'
+import { CATEGORY_FETCHED } from '../actions/actionTypes'
 
-let initialCategoryState = [
+const initialCategoryState = [
 		{
 			id: 0,
 			name: 'all',

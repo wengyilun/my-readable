@@ -4,7 +4,8 @@
 import * as  React from 'react'
 import {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import { openModal, editPostRequest} from '../actions'
+import { openModal} from '../actions'
+import { editPostRequest} from '../actions/postActions'
 import {capitalize} from '../utils/helpers'
 
 class EditPost extends Component {
@@ -91,5 +92,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	}
 }
 
-EditPost = connect(null, mapDispatchToProps)(EditPost)
-export default EditPost
+export default  EditPost = connect(null, mapDispatchToProps)(EditPost)
