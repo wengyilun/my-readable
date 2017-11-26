@@ -219,8 +219,15 @@
 }
 /* Sort
 ------------ */
-.sortSelect{
-
+.loading {
+  align-self: center;
+  margin: 0 auto;
+}
+.loaderContainer{
+  display:flex;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
 }
 
 /*  Post

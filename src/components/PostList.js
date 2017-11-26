@@ -5,12 +5,6 @@ import React, {Component} from 'react'
 import Post from './Post'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-// import FaSortNumericAsc from 'react-icons/lib/fa/sort-numeric-asc';
-// import FaSortNumericDesc from 'react-icons/lib/fa/sort-numeric-desc';
-// import FaSortAmountDesc from 'react-icons/lib/fa/sort-amount-desc';
-// import FaSortAmountAsc from 'react-icons/lib/fa/sort-amount-desc';
-// import FaSortAlphaDesc from 'react-icons/lib/fa/sort-alpha-desc';
-// import FaSortAlphaAsc from 'react-icons/lib/fa/sort-alpha-asc';
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 import {onDeletePost,openModal} from '../actions'
@@ -48,7 +42,6 @@ class PostList extends Component{
 		return (
 			<div className="postListContainer">
 				<div className={colorBar}>
-					{/*<label>Sort </label>*/}
 					<select name="sortMenu" className="sortSelect"
 						ref={sort => sel = sort}
 						value={this.state.sortBy}

@@ -9,6 +9,7 @@ import Comment from "../../components/Comment"
 import Voting from '../../components/Voting'
 import FaCommentO from 'react-icons/lib/fa/comment-o';
 import {convertToDate} from '../../utils/helpers'
+import Loading from 'react-loading'
 
 class PostDetail extends Component {
 	componentWillMount (){
@@ -16,15 +17,14 @@ class PostDetail extends Component {
 	}
 	
 	render(){
-		const {filtered_comments} = this.props
-		const {created_datetime, last_edited, voteScore, id, body} = this.props
+		const {filtered_comments, created_datetime, last_edited, voteScore, id, body} = this.props
 		
-		if(voteScore === undefined){
-			return (
-				<div>Loading</div>
-			)
-		}
 		return(
+			voteScore === undefined
+				? <div className="loaderContainer">
+				    <Loading type='spin' color='#fff' className='loading' />
+				  </div>
+				:
 			<div>Post Detail
 				<main className="postItemBodyMain">
 					<div><span className="postDate">{created_datetime &&  convertToDate(created_datetime)}</span>

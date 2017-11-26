@@ -5,15 +5,24 @@ import { connect } from 'react-redux';
 import {categoryFetched, postFetched, commentsFetched, } from '../actions'
 import Nav from './Nav'
 import Header from './Header'
-import TabBar from './TabBar'
-import PostList from './PostList'
 import Posts from '../pages/Posts'
-import PostDetail from '../pages/PostDetail'
-import Home from '../pages/Home'
 import ModalContainer from '../containers/ModalContainer'
+import Loading from 'react-loading'
 
+// TODO: Add back button from Detail page
+// TODO: Add post count to category
+// TODO: Clean up Menu CSS
+// TODO: Add Login
+// TODO: Add Author
+// TODO: Add History
+// TODO: Add Loader
+// TODO: Add MediaQuery
+// TODO: Add Database
 
 class App extends Component {
+	state = {
+		loading: true
+	}
 	componentWillMount(){
 		this.getCategories()
 		this.getPosts()
@@ -38,20 +47,27 @@ class App extends Component {
 		.then(comments => {
 			this.props.onPostFetched(posts)
 			this.props.onCommentsFetched(comments)
+			this.setState({loading: false})
 		})
 	}
 	
 	render(){
+		
+		const {loading} = this.state
 		return (
-			<div className="App" >
-				<ModalContainer/>
-				<Header/>
-				<Nav/>
-				<div className="main-content">
-					<Route exact path="/" component={Posts} />
-					<Route path="/posts" component={Posts}/>
-				</div>
-			</div>
+				loading === true
+					? <div className="loaderContainer">
+						 <Loading delay={200} type='spin' color='#fff' className='loading' />
+				      </div>
+					: <div className="App" >
+						<ModalContainer/>
+						<Header/>
+						<Nav/>
+					    <div className="main-content">
+							<Route exact path="/" component={Posts} />
+							<Route path="/posts" component={Posts}/>
+					    </div>
+					</div>
 		)
 	}
 }
