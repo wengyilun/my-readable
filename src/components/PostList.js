@@ -5,13 +5,12 @@ import React, {Component} from 'react'
 import Post from './Post'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import GoDiffAdded from 'react-icons/lib/go/diff-added';
-import FaSortNumericAsc from 'react-icons/lib/fa/sort-numeric-asc';
-import FaSortNumericDesc from 'react-icons/lib/fa/sort-numeric-desc';
-import FaSortAmountDesc from 'react-icons/lib/fa/sort-amount-desc';
-import FaSortAmountAsc from 'react-icons/lib/fa/sort-amount-desc';
-import FaSortAlphaDesc from 'react-icons/lib/fa/sort-alpha-desc';
-import FaSortAlphaAsc from 'react-icons/lib/fa/sort-alpha-asc';
+// import FaSortNumericAsc from 'react-icons/lib/fa/sort-numeric-asc';
+// import FaSortNumericDesc from 'react-icons/lib/fa/sort-numeric-desc';
+// import FaSortAmountDesc from 'react-icons/lib/fa/sort-amount-desc';
+// import FaSortAmountAsc from 'react-icons/lib/fa/sort-amount-desc';
+// import FaSortAlphaDesc from 'react-icons/lib/fa/sort-alpha-desc';
+// import FaSortAlphaAsc from 'react-icons/lib/fa/sort-alpha-asc';
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 import {onDeletePost,openModal} from '../actions'
@@ -21,13 +20,16 @@ class PostList extends Component{
 		sortBy:''
 	}
 	
-	handleSort = (prop =>{
-		this.setState({'sortBy': prop})
-	})
+	handleSortChange = (e)=>{
+		e.preventDefault()
+		this.setState({'sortBy': e.target.value})
+	}
+	
 	render(){
-		const {dispatch, posts,  onDeletePost, onAddPost, filter, searchQuery} = this.props
+		const {posts, filter, searchQuery} = this.props
 		let colorBar = `${filter}-color-bar`
 		let searchedResult
+		let sel
 		
 		if(posts.length === 0){
 			return <p className="postMessage">There is no posts to display</p>
@@ -42,49 +44,28 @@ class PostList extends Component{
 		}
 		
 		searchedResult.sort(sortBy(this.state.sortBy))
-		
+	
 		return (
 			<div className="postListContainer">
 				<div className={colorBar}>
-					<label>sort by Date: </label>
-						<FaSortNumericAsc className="addPostButton iconButton"  size={24}
-									  onClick={ e => {
-										  e.preventDefault()
-										  this.handleSort('created_datetime')
-									  }}/>
-				
-					<FaSortNumericDesc className="addPostButton iconButton"  size={24}
-									   onClick={ e => {
-										   e.preventDefault()
-										   this.handleSort('-created_datetime')
-									   }}/>
-					<label>sort by Votes: </label>
-					
-					<FaSortAmountDesc className="addPostButton iconButton" size={24}
-									  onClick={ e => {
-										  e.preventDefault()
-										  this.handleSort('voteScore')
-									  }}/>
-					
-					<FaSortAmountAsc className="addPostButton" size={20}
-									 onClick={ e => {
-										 e.preventDefault()
-										 this.handleSort('-voteScore')
-									 }}/>
-					<label>sort by Title: </label>
-					<FaSortAlphaAsc className="addPostButton" size={20}
-									 onClick={ e => {
-										 e.preventDefault()
-										 this.handleSort('title')
-						
-									 }}/>
-					<FaSortAlphaDesc className="addPostButton" size={20}
-									 onClick={ e => {
-										 e.preventDefault()
-										 this.handleSort('-title')
-						
-									 }}/>
-				
+					{/*<label>Sort </label>*/}
+					<select name="sortMenu" className="sortSelect"
+						ref={sort => sel = sort}
+						value={this.state.sortBy}
+						onChange={(e)=> this.handleSortChange(e)}>
+						<option value='created_datetime'>Sort by Date: Old to New</option>
+						<option value='-created_datetime'>Sort by date: New to Old</option>
+						<hr/>
+						<option value='title'>Sort by Title: Z to A</option>
+						<option value='-title'>Sort by Title: A to Z</option>
+						<hr/>
+						<option value='body'>Sort by Body: Z to A</option>
+						<option value='-body'>Sort by Body: A to Z</option>
+						<hr/>
+						<option value='voteScore'>Sort by Vote: Low to High</option>
+						<option value='-voteScore'>Sort by Vote: High to Low</option>
+						))}
+					</select>
 				</div>
 				<li>
 					<ul>
@@ -99,7 +80,6 @@ class PostList extends Component{
 	}
 }
 
-
 PostList.propTypes = {
 	posts: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -111,7 +91,6 @@ PostList.propTypes = {
 	).isRequired,
 	onPostClick: PropTypes.func.isRequired
 }
-
 
 const getVisiblePosts = (posts, filter)=>{
 	switch (filter){

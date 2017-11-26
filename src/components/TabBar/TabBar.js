@@ -18,10 +18,8 @@ let TabBar = ({categories}) => (
 const mapStateToProps = (state) => {
 	return {
 		categories: state.categories
-	
 	}
 }
-
 
 TabBar.propTypes = {
 	categories: PropTypes.arrayOf(

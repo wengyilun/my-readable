@@ -52,7 +52,6 @@ export const addPost = (post) => {
 	 .then((res) => res.data)
 }
 
-
 export const editPost = (post)=>{
 	const {id, title, body, category_id} = post
 	
@@ -62,6 +61,11 @@ export const editPost = (post)=>{
 		    body,
 		    category_id,
 	})
+	.then((res) => res.data)
+}
+
+export const fetchPostById = (id) =>{
+	return api.get(`/posts/${id}`)
 	.then((res) => res.data)
 }
 

@@ -89,4 +89,4 @@ function posts(state = initialPostState, action){
 	}
 }
 
-export default posts
+ export default posts

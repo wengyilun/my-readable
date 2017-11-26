@@ -28,7 +28,7 @@ function mapStateToProps(state, ownProps){
 		Component: state.modal.component,
 		data:{
 			currentPost: state.currentPost,
-			categoryId: state.categories && state.categories.filter(category => category.name === state.visibilityFilter).id,
+			// categoryId: state.categories && state.categories.filter(category => category.name === state.visibilityFilter).id,
 			categories: state.categories
 		}
 	}

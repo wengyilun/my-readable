@@ -3,8 +3,7 @@
  */
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {addPostRequest, openModal} from '../../actions'
-import Post from "../../components/Post"
+import {fetchSinglePostRequest} from '../../actions'
 import AddComment from "../../containers/AddComment"
 import Comment from "../../components/Comment"
 import Voting from '../../components/Voting'
@@ -12,24 +11,34 @@ import FaCommentO from 'react-icons/lib/fa/comment-o';
 import {convertToDate} from '../../utils/helpers'
 
 class PostDetail extends Component {
+	componentWillMount (){
+		this.props.onfetchSinglePostRequest(this.props.match.params.postId)
+	}
+	
 	render(){
-		const {filtered_comments, data} = this.props
-		// const id = this.props.match.params.postId
+		const {filtered_comments} = this.props
+		const {created_datetime, last_edited, voteScore, id, body} = this.props
+		
+		if(voteScore === undefined){
+			return (
+				<div>Loading</div>
+			)
+		}
 		return(
 			<div>Post Detail
 				<main className="postItemBodyMain">
-					<div><span className="postDate">{convertToDate(data.created_datetime)}</span>
-						{data.last_edited > 0 && (
-							<span className="postDate"> Last edited on:{convertToDate(data.last_edited)}</span>)}
+					<div><span className="postDate">{created_datetime &&  convertToDate(created_datetime)}</span>
+						{last_edited > 0 && (
+							<span className="postDate"> Last edited on:{last_edited && convertToDate(last_edited)}</span>)}
 					</div>
-					<p>{data.body}</p>
+					<p>{body}</p>
 					<footer>
 						<div className="comment">{filtered_comments && filtered_comments.length} comment <FaCommentO size="20"/></div>
-						<Voting voteScore={data.voteScore} type="post" id={data.id}/>
+						<Voting voteScore={voteScore} type="post" id={this.props.match.params.postId}/>
 					</footer>
 				</main>
 				<div className="commentList">
-					<AddComment parentId={data.id} />
+					<AddComment parentId={this.props.match.params.postId} />
 					<div>
 						<ul>
 							{filtered_comments && filtered_comments.map(comment => (
@@ -44,12 +53,21 @@ class PostDetail extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+	if(state.currentPost === null) return
 	const post = state.posts.find(post => post.id === state.currentPost.id)
+	
 	return {
 		//TODO: Load comment
 		filtered_comments: 	state.comments.filter(comment => comment.parentId === state.currentPost.id ),
-		data: {...post}	//state.currentPost
+		...post,
+	}
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		onfetchSinglePostRequest:(post) => {
+			dispatch(fetchSinglePostRequest(post))
+		},
 	}
 }
 
-export default PostDetail = connect(mapStateToProps, null)(PostDetail)
+export default PostDetail = connect(mapStateToProps, mapDispatchToProps)(PostDetail)

@@ -7,7 +7,6 @@ import {connect } from 'react-redux'
 import {PropTypes} from 'prop-types'
 import './SearchBar.css'
 import AddPost from '../../containers/AddPost'
-import EditPost from '../../containers/EditPost'
 
 class SearchBar extends Component{
 	state = {

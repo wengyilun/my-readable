@@ -7,11 +7,9 @@ import PropTypes from 'prop-types'
 import FaCommentO from 'react-icons/lib/fa/comment-o';
 import FaTrash from 'react-icons/lib/fa/trash';
 import FaEdit from 'react-icons/lib/fa/edit';
-import {onDeletePost, editPost, openModal, onViewPostDetail, onEditPost} from '../../actions'
-import Comment from '../Comment'
+import {onDeletePost, openModal, onViewPostDetail, onEditPost} from '../../actions'
 import {Link} from 'react-router-dom'
 import EditPost from "../../containers/EditPost"
-
 import Voting from '../Voting'
 import {convertToDate} from '../../utils/helpers'
 
@@ -52,16 +50,6 @@ let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, vo
 					<Voting voteScore={voteScore} type="post" id={id}/>
 				</footer>
 			</main>
-			{/*<div className="commentList">*/}
-				{/*<AddComment parentId={id} />*/}
-				{/*<div>*/}
-					{/*<ul>*/}
-						{/*{filtered_comments && filtered_comments.map(comment => (*/}
-							{/*<Comment {...comment}/>*/}
-						{/*))}*/}
-					{/*</ul>*/}
-				{/*</div>*/}
-			{/*</div>*/}
 		</article>
 	</div>
 )
@@ -69,7 +57,7 @@ let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, vo
 const mapStateToProps = (state, ownProps) => {
 	return {
 		filtered_comments: 	state.comments.filter(comment => comment.parentId === ownProps.id ),
-		data: {...ownProps}//state.currentPost
+		data: {...ownProps}
 	}
 }
 

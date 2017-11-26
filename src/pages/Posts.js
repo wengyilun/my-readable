@@ -5,7 +5,7 @@ import React, {Component} from 'react'
 import TabBar from '../components/TabBar'
 import PostList from '../components/PostList'
 import PostDetail from './PostDetail'
-import {Route, withRouter, Link} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 
 
 const Posts = ({ match }) => (

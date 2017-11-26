@@ -14,7 +14,7 @@ div.sortSelectContainer, div.addButton {
 div.searchInputContainer {
   flex: 3; }
 
-.searchInput, .sortSelect, .addButton {
+.searchInput, .addButton {
   width: 98%;
   height: 50px;
   border-radius: 20px;
@@ -51,7 +51,7 @@ div.searchInputContainer {
 @media (min-width: 412px) and (max-width: 920px) {
   .searchBar {
     margin: 1em; }
-  .searchInput, .sortSelect, .addButton {
+  .searchInput, .addButton {
     font-size: 1em;
     height: 60px; }
   .searchInput {

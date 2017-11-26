@@ -76,11 +76,6 @@ class Comment extends Component {
 						
 						<div>
 							<Voting voteScore={voteScore} type="comment" id={id}/>
-							{/*<button className="replyButton" onClick={(e)=>{*/}
-							{/*e.preventDefault()*/}
-							{/*this.setState({showReply: true})*/}
-							{/*}}>Reply*/}
-							{/*</button>*/}
 						</div>
 						{showReply === true
 							? <div><input className="replyInput"/><button>Enter</button></div>

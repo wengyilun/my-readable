@@ -5,7 +5,8 @@ addComment,
 deleteCommentById,
 updatePostVote,
 updateCommentVote,
-editComment} from '../utils/PostsAPI'
+editComment,
+fetchPostById} from '../utils/PostsAPI'
 
 export const DELETE_POST = 'DELETE_POST'
 export const ON_EDIT_POST = 'ON_EDIT_POST'
@@ -24,7 +25,7 @@ export const COMMENT_DELETED = 'COMMENT_DELETED'
 export const UPDATE_COMMENT_VOTE = 'UPDATE_COMMENT_VOTE'
 export const UPDATE_SEARCH_QUERY = 'UPDATE_SEARCH_QUERY'
 export const ON_VIEW_POST_DETAIL = 'ON_VIEW_POST_DETAIL'
-export const SINGLE_POST_FETCHED = 'POST_VIEWED'
+export const SINGLE_POST_FETCHED = 'SINGLE_POST_FETCHED'
 export const COMMENT_EDITED = 'COMMENT_EDITED'
 
 export function categoryFetched (categories){
@@ -80,9 +81,9 @@ export function onViewPostDetail(post){
 		data: post
 	}
 }
-export function fetchSinglePostRequest(post){
+export function fetchSinglePostRequest(id){
 	return dispatch => {
-		return editPost(post)
+		return fetchPostById(id)
 		.then(post => {
 			dispatch(singlePostFetched(post))
 		})
