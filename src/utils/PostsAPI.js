@@ -65,8 +65,9 @@ export const editPost = (post)=>{
 }
 
 export const fetchPostById = (id) =>{
-	return api.get(`/posts/${id}`)
+	 return api.get(`/posts/${id}`)
 	.then((res) => res.data)
+	.catch((res) =>  res.response.status)
 }
 
 export const deletePostById =(id) => {

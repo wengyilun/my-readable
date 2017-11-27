@@ -7,6 +7,7 @@ import {
 	ON_VIEW_POST_DETAIL,
 	SINGLE_POST_FETCHED,
 	UPDATE_POST_VOTE,
+	SINGLE_POST_FETCHED_FAILED
 	
 } from './actionTypes';
 
@@ -79,7 +80,12 @@ export function singlePostFetched (post){
 		post
 	}
 }
-
+export function singlePostFetchedFailed (err){
+	return{
+		type: SINGLE_POST_FETCHED_FAILED,
+		err
+	}
+}
 
 // EDIT POST
 export function onEditPost({id, title, body, category_id}){

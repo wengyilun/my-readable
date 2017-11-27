@@ -10,7 +10,7 @@ class Nav extends Component {
 	}
 	toggleNav = (e)=>{
 		e.preventDefault()
-		this.setState({showNav: !this.state.showNav})
+		// this.setState({showNav: !this.state.showNav})
 	}
 	
 	render(){
@@ -22,13 +22,6 @@ class Nav extends Component {
 					<div className="menu_icon contract">
 					menu</div>
 				</a>
-				{/*<a className="header__menu menu_icon">*/}
-					{/*onClick={e => {*/}
-						{/*e.preventDefault()*/}
-					    {/*this.toggleNav(e)*/}
-					{/*}}>*/}
-					{/*menu*/}
-				{/*</a>*/}
 				<nav className={`main-nav ${showNav ? "visible" : "hidden"}`}>
 					<li><Link to="/">Home</Link></li>
 					<li><Link to="/about">About</Link></li>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, withRouter} from 'react-router-dom'
+import {Route, withRouter, Switch} from 'react-router-dom'
 import {fetchCategories, fetchPosts, fetchComments} from '../utils/PostsAPI'
 import { connect } from 'react-redux';
 import {categoryFetched } from '../actions'
@@ -8,6 +8,7 @@ import {commentsFetched, } from '../actions/commentActions'
 import Nav from './Nav'
 import Header from './Header'
 import Posts from '../pages/Posts'
+import NotFoundPage from '../pages/NotFoundPage'
 import ModalContainer from '../containers/ModalContainer'
 import Loading from 'react-loading'
 
@@ -65,8 +66,11 @@ class App extends Component {
 						<Header/>
 						<Nav/>
 					    <div className="main-content">
-							<Route exact path="/" component={Posts} />
-							<Route path="/posts" component={Posts}/>
+					    	<Switch>
+								<Route exact path="/" component={Posts} />
+								<Route path="/posts" component={Posts}/>
+								<Route component={NotFoundPage}/>
+							</Switch>
 					    </div>
 					</div>
 		)

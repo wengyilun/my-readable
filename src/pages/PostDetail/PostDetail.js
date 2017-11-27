@@ -19,10 +19,10 @@ class PostDetail extends Component {
 	}
 	
 	render(){
-		const {filtered_comments, created_datetime, last_edited, voteScore, id, body} = this.props
+		const {errors, filtered_comments, created_datetime, last_edited, voteScore, id, body} = this.props
 		
 		return(
-			voteScore === undefined
+			 voteScore===null
 				? <div className="loaderContainer">
 				    <Loading type='spin' color='#fff' className='loading' />
 				  </div>
@@ -71,6 +71,7 @@ const mapStateToProps = (state, ownProps) => {
 		//TODO: Load comment
 		filtered_comments: 	state.comments.filter(comment => comment.parentId === state.currentPost.id ),
 		...post,
+		errors: state.errors
 	}
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
