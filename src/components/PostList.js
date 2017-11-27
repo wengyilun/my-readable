@@ -7,12 +7,15 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
-import {openModal} from '../actions'
+import {openModal, setVisibilityFilter} from '../actions'
 import {onDeletePost} from '../actions/postActions'
 
 class PostList extends Component{
 	state = {
 		sortBy:''
+	}
+	componentWillMount (){
+		this.props.paramFilter && this.props.setVisibilityFilter(this.props.paramFilter)
 	}
 	
 	handleSortChange = (e)=>{
@@ -25,7 +28,6 @@ class PostList extends Component{
 		const colorBar = `${filter}-color-bar`
 		let searchedResult
 		let sel
-		
 		if(posts.length === 0){
 			return <p className="postMessage">There is no posts to display</p>
 		}
@@ -109,7 +111,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		onDeletePost: (id) => {dispatch(onDeletePost(id))},
-		onAddPost: () => {dispatch(openModal({shouldOpen:true, mode:'AddPost'}))}
+		onAddPost: () => {dispatch(openModal({shouldOpen:true, mode:'AddPost'}))},
+		setVisibilityFilter: (filter) => {
+			dispatch(setVisibilityFilter(filter))
+		}
 	}
 }
 

@@ -7,7 +7,7 @@ import {capitalize} from '../../utils/helpers'
 import {setVisibilityFilter} from '../../actions'
 import {connect} from 'react-redux'
 import './Tab.css'
-import NavLink from '../NavLink'
+import {Link} from 'react-router-dom'
 
 let Tab = ({active, name, filter, count, onTabClick}) => {
 	let labelClass = `tab-${name}`
@@ -15,8 +15,9 @@ let Tab = ({active, name, filter, count, onTabClick}) => {
 		labelClass =  `tab-${name}-active`
 	}
 	return (
-		<NavLink className="tabButton" to={`/:${name}/posts`}
-		   onClick={e => {
+		<Link to={`/${filter}/posts`}
+			   className="tabButton"
+		   	   onClick={e => {
 			   e.preventDefault()
 			   onTabClick()
 		   }}>
@@ -26,7 +27,7 @@ let Tab = ({active, name, filter, count, onTabClick}) => {
 				{capitalize(name)} 
 			</label>
 			
-		</NavLink>
+		</Link>
 	)
 }
 const mapStateToProps = (state, ownProps) => {

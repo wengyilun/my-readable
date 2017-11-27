@@ -1,3 +1,7 @@
+
+/**
+ * Created by mbp on 26/11/2017.
+ */
 /**
  * Created by mbp on 23/11/2017.
  */
@@ -9,16 +13,14 @@ import {Route} from 'react-router-dom'
 import ModalContainer from '../containers/ModalContainer'
 
 
-const Posts = ({ match }) => (
-		<div>
-			<ModalContainer/>
-			<Route path={`${match.url}/:postId`} component={PostDetail}/>
-			<Route exact path={match.url} render={()=> (
-				<section className="postContainer">
-					<TabBar/>
-					<PostList />
-				</section>
-			)}/>
-		</div>
+const CategoriesPage = ({ match }) => (
+	<div>
+		<Route exact path={match.url} render={()=> (
+			<section className="postContainer">
+				<TabBar/>
+				<PostList paramFilter={match.params.category}/>
+			</section>
+		)}/>
+	</div>
 )
-export default Posts
+export default CategoriesPage

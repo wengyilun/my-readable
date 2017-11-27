@@ -3,11 +3,11 @@
  */
 import { connect } from 'react-redux'
 import {openModal} from '../actions'
-import React  from 'react'
+import React, {Component}  from 'react'
 
 import Modal from 'react-modal'
 let ModalContainer = ({Component, shouldOpen, closeModal, data}) => {
-		return (
+	     return (
 			<Modal
 				className='modal'
 				overlayClassName='overlay'
@@ -43,5 +43,4 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(
-mapStateToProps, mapDispatchToProps)
-(ModalContainer)
+mapStateToProps, mapDispatchToProps) (ModalContainer)

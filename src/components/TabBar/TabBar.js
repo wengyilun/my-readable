@@ -6,11 +6,12 @@ import Tab from '../Tab'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import './TabBar.css'
+import {Link} from 'react-router-dom'
 
 let TabBar = ({categories}) => (
 	<nav className="tabBar">
 		{categories && categories.map((category) => (
-			<Tab name={category.name} filter={category.name}/>
+				<Tab name={category.name} filter={category.name}/>
 		))}
 	</nav>
 )
