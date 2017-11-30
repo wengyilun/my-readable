@@ -18,9 +18,12 @@ let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, vo
 	<div className="postItem">
 		<aside className="postItemAuthor">
 			<div className="authorImage"/>
-			<div className="authorName">by Author</div>
-		</aside>
-		<article className="postItemBody">
+		
+			<div className="authorNameContainer">
+				<div className="authorName">by Author</div>
+				<span className="postDate">{convertToDate(created_datetime)}</span>
+				{last_edited > 0 && ( <span className="postDate"> Last edited on:{convertToDate(last_edited)}</span>)}
+			</div>
 			<nav className="postControl">
 				<FaEdit className="editButton" size={22}
 						onClick={ e => {
@@ -29,21 +32,21 @@ let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, vo
 							dispatch(onEditPost({id, title, body, category_id, created_datetime}))
 						}}/>
 				<FaTrash className="deleteButton" size={20}
-						onClick={e => {
-							e.preventDefault()
-							dispatch(onDeletePost(id))
-						}}/>
+						 onClick={e => {
+							 e.preventDefault()
+							 dispatch(onDeletePost(id))
+						 }}/>
 			</nav>
+		</aside>
+		<article className="postItemBody">
+			
 			<main className="postItemBodyMain" onClick={(e) => {
 				e.preventDefault()
 				dispatch(onViewPostDetail(data))
 			}}>
 				
 				<Link to={`/posts/${id}`}>{title}</Link>
-				<div><span className="postDate">{convertToDate(created_datetime)}</span>
-					{last_edited > 0 && (
-					     <span className="postDate"> Last edited on:{convertToDate(last_edited)}</span>)}
-					 </div>
+			
 				<p>{body}</p>
 				<footer>
 					<div className="comment">{filtered_comments && filtered_comments.length} comment <FaCommentO size="20"/></div>

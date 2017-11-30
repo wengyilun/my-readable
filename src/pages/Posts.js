@@ -11,8 +11,6 @@ import ModalContainer from '../containers/ModalContainer'
 
 const Posts = ({ match }) => (
 		<div>
-			<ModalContainer/>
-			<Route path={`${match.url}/:postId`} component={PostDetail}/>
 			<Route exact path={match.url} render={()=> (
 				<section className="postContainer">
 					<TabBar/>

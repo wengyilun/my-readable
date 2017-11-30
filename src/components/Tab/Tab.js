@@ -18,7 +18,6 @@ let Tab = ({active, name, filter, count, onTabClick}) => {
 		<Link to={`/${filter}/posts`}
 			   className="tabButton"
 		   	   onClick={e => {
-			   e.preventDefault()
 			   onTabClick()
 		   }}>
 			<input type="radio"  name="tab"

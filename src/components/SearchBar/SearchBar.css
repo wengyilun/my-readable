@@ -68,18 +68,13 @@ div.searchInputContainer {
 @media (max-width: 411px) {
   .searchBar {
     margin: 1em; }
-  .searchInput, .sortSelect, .addButton {
+  .searchInput, .addButton {
     font-size: 1em; }
   .searchInput {
     background-size: 1.6em;
     padding-left: 1em;
     height: 60px; }
   .addButton {
-    font-size: 0;
-    width: 60px;
-    height: 60px;
-    background-position: center; }
-  .sortSelect {
     font-size: 0;
     width: 60px;
     height: 60px;

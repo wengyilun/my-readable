@@ -12,6 +12,7 @@ import NotFoundPage from '../pages/NotFoundPage'
 import ModalContainer from '../containers/ModalContainer'
 import CategoriesPage from '../pages/CategoriesPage'
 import Home from '../pages/Home'
+import PostDetail from '../pages/PostDetail'
 import Loading from 'react-loading'
 
 // TODO: Add back button from Detail page
@@ -64,6 +65,7 @@ class App extends Component {
 						 <Loading delay={200} type='spin' color='#fff' className='loading' />
 				      </div>
 					: <div className="App" >
+						<ModalContainer/>
 						<Header/>
 						<Nav/>
 					    <div className="main-content">
@@ -71,6 +73,7 @@ class App extends Component {
 								<Route exact path="/" component={Posts} />
 								<Route exact path="/:category/posts" component={CategoriesPage} />
 								<Route exact path="/posts" component={Posts}/>
+								<Route path="/posts/:postId" component={PostDetail}/>
 								<Route component={NotFoundPage}/>
 							</Switch>
 					    </div>

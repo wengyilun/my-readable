@@ -84,7 +84,7 @@ div.searchInputContainer {
     margin: 1em;
   }
 
-  .searchInput, .sortSelect, .addButton {
+  .searchInput, .addButton {
     font-size: 1em;
   }
   .searchInput {
@@ -93,12 +93,6 @@ div.searchInputContainer {
     height: 60px;
   }
   .addButton{
-    font-size: 0;
-    width: 60px;
-    height: 60px;
-    background-position: center;
-  }
-  .sortSelect{
     font-size: 0;
     width: 60px;
     height: 60px;

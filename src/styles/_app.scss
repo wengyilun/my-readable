@@ -1,11 +1,7 @@
 @import url('http://fonts.googleapis.com/css?family=Amatic+SC');
 @import url('http://fonts.googleapis.com/css?family=Josefin+Slab');
 
-/**{*/
-/*outline: 1px solid red;*/
-/*}*/
 .App {
-  display: flex;
   position: relative;
   background:white;
   margin:0px auto;
@@ -232,6 +228,10 @@
 
 /*  Post
 ------------ */
+.postListWrapper{
+  margin-bottom: 16px;
+}
+
 .postListContainer {
   width: 100%;
 }
@@ -247,38 +247,38 @@
   font-size: 0;
 }
 
-
-
 .postItem{
   width: 100%;
-  display: flex;
   border: 1px solid rgba(175, 157, 128, 0.3);
-  border-radius: 4px;
-  padding:10px 14px;
 }
 
 .postDate{
-  font-size: 0.8em;
+  font-size: 11px;
   margin-right:4px;
 }
 
 .postItemAuthor{
+  display: flex;
+  flex-direction: row;
   min-width: 120px;
-  border-right: 1px solid #EAD5D7;
   position: relative;
   margin-right: 4px;
 }
+.authorNameContainer {
+  margin-left: 10px;
+  margin-top: 10px;
+}
 
 .authorName{
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  background-color: #E6F7EF;
+  //position: absolute;
   font-size: 12px;
   bottom: 0px;
+  margin-bottom: -5px;
 }
 
 .authorImage{
+  margin-left:10px;
+  margin-top: 10px;
   min-width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -309,10 +309,21 @@
   right:8px;
 }
 
-.editButton{
-  margin-right: 20px;
-  margin-top: 1px;
+.postControl{
+  margin-top: 6px;
+  margin-right: 6px;
 }
+
+.editButton{
+  position: absolute;
+  right: 31px;
+}
+
+.deleteButton{
+  position: absolute;
+  right: 0;
+}
+
 .addPostButton{
   margin-right: 10px;
   margin-top: 1px;
@@ -416,23 +427,30 @@
   .postItemAuthor{
     //display: none;
   }
-
-  //.createAvatarInput {
-  //  min-width: 60px;
-  //  height: 60px;
-  //  background-color: white;
-  //  background-image: url('../images/person.svg');
-  //  background-size: 32px 32px;
-  //  background-position: center;
-  //  background-repeat: no-repeat;
-  //  border-radius: 50%;
-  //}
+  .sortSelectContainer{
+    position:relative;
+  }
+  .sortSelect{
+    font-size: 0;
+    position:absolute;
+    background: #593814;
+    right: 4px;
+    bottom: 1px;
+    width: 26px;
+    height: 26px;
+    border-radius: 2px;
+    background-image: url('../images/arrow-drop-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    border: 1px solid #593814;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.23);
+  }
 
   .postItemBodyMain header
   {
     /*margin: 2.1em .2em .2em .2em;*/
   }
-
 
   .overlay {
     background-color: rgba(255, 255, 255, 0.5);
@@ -469,7 +487,6 @@
 }
 
 
-// Tooltip
 .tooltip {
   position: relative;
   display: inline-block;
@@ -529,7 +546,25 @@
   .postItemAuthor{
     display: none;
   }
-
+  .sortSelectContainer{
+    position:relative;
+  }
+  .sortSelect{
+    font-size: 0;
+    position:absolute;
+    background: #593814;
+    right: 4px;
+    bottom: 1px;
+    width: 26px;
+    height: 26px;
+    border-radius: 2px;
+    background-image: url('../images/arrow-drop-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    border: 1px solid #593814;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.23);
+  }
 
   .overlay {
     background-color: rgba(255, 255, 255, 0.5);
@@ -575,4 +610,20 @@
   .active{
     background: tomato;
   }
+
+  .postControl{
+    margin-top: 6px;
+    margin-right: 6px;
+  }
+
+  .editButton{
+    position: absolute;
+    right: 31px;
+  }
+
+  .deleteButton{
+    position: absolute;
+    right: 0;
+  }
+
 }

@@ -44,7 +44,7 @@ class PostList extends Component{
 	
 		return (
 			<div className="postListContainer">
-				<div className={colorBar}>
+				<div className={[colorBar, 'sortSelectContainer'].join(' ')}>
 					<select name="sortMenu" className="sortSelect"
 						ref={sort => sel = sort}
 						value={this.state.sortBy}
@@ -63,7 +63,7 @@ class PostList extends Component{
 						))}
 					</select>
 				</div>
-				<li>
+				<li className="postListWrapper">
 					<ul>
 						{searchedResult.map(post => (
 							<Post key={post.id} {...post}
