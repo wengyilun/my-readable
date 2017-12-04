@@ -10,7 +10,6 @@ import React from 'react'
 
 let Voting = ({dispatch, type, voteScore, id}) => (
 		<div className="vote">
-			
 			<FaHandOUp size="22" style={{color: "#ffaaa", paddingRight:"4px"}}
 							onClick={e=>{
 								e.preventDefault()

@@ -20,13 +20,18 @@ class PostDetail extends Component {
 	}
 	
 	render(){
-		const {filtered_comments, created_datetime, last_edited, voteScore, id, body, title} = this.props
+		const {filtered_comments, deleted, created_datetime, last_edited, voteScore, id, body, title} = this.props
 		
 		return(
 			 voteScore===null
 				? <div className="loaderContainer">
 				    <Loading type='spin' color='#fff' className='loading' />
 				  </div>
+				:
+			 deleted
+				? <div >
+				 	<p className="postMessage">This post has been removed</p>
+				 </div>
 				:
 			<div>
 				<Link className='closePostDetail' to='/'>Close</Link>
@@ -67,13 +72,13 @@ class PostDetail extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	if(state.currentPost === null) return
+	if( state.currentPost === null) return
 	const post = state.posts.find(post => post.id === state.currentPost.id)
 	
 	return {
-		//TODO: Load comment
 		filtered_comments: 	state.comments.filter(comment => comment.parentId === state.currentPost.id ),
 		...post,
+		deleted: typeof state.currentPost.id === 'undefined',
 		errors: state.errors
 	}
 }

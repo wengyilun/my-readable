@@ -26,7 +26,7 @@ No authentication has been implemented in this version.
 1. Open a terminal and enter the following:
   ```bash
   $> cd /path/to/your-project-folder
-  $> npm start
+  $> yarn start or npm start
   ```
 
 2. Open a browser and visit **localhost:3000**
