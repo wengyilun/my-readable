@@ -7,6 +7,7 @@ import {fetchSinglePostRequest} from '../../actions/postActions'
 import AddComment from "../../containers/AddComment"
 import Comment from "../../components/Comment"
 import Voting from '../../components/Voting'
+import EditControl from '../../components/EditControl'
 import FaCommentO from 'react-icons/lib/fa/comment-o';
 import {convertToDate} from '../../utils/helpers'
 import ImageInput from '../../utils/ImageInput'
@@ -19,7 +20,7 @@ class PostDetail extends Component {
 	}
 	
 	render(){
-		const {errors, filtered_comments, created_datetime, last_edited, voteScore, id, body} = this.props
+		const {filtered_comments, created_datetime, last_edited, voteScore, id, body, title} = this.props
 		
 		return(
 			 voteScore===null
@@ -42,6 +43,8 @@ class PostDetail extends Component {
 							<div className="author">ellen</div>
 						</div>
 					</div>
+					<EditControl {...this.props}/>
+					{title}
 					<p>{body}</p>
 					<footer>
 						<div className="comment">{filtered_comments && filtered_comments.length} comment <FaCommentO size="20"/></div>
@@ -79,6 +82,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		onfetchSinglePostRequest:(post) => {
 			dispatch(fetchSinglePostRequest(post))
 		},
+		
 	}
 }
 

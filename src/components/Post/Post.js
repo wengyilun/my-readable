@@ -14,7 +14,7 @@ import EditPost from "../../containers/EditPost"
 import Voting from '../Voting'
 import {convertToDate} from '../../utils/helpers'
 
-let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, voteScore, created_datetime, last_edited}) => (
+let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, category, voteScore, created_datetime, last_edited}) => (
 	<div className="postItem">
 		<aside className="postItemAuthor">
 			<div className="authorImage"/>
@@ -45,9 +45,10 @@ let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, vo
 				dispatch(onViewPostDetail(data))
 			}}>
 				
-				<Link to={`/posts/${id}`}>{title}</Link>
-			
-				<p>{body}</p>
+				<Link to={`/${category.name}/${id}`}>
+				    {title}
+					<p>{body}</p>
+				</Link>
 				<footer>
 					<div className="comment">{filtered_comments && filtered_comments.length} comment <FaCommentO size="20"/></div>
 					<Voting voteScore={voteScore} type="post" id={id}/>
@@ -60,7 +61,8 @@ let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, vo
 const mapStateToProps = (state, ownProps) => {
 	return {
 		filtered_comments: 	state.comments.filter(comment => comment.parentId === ownProps.id ),
-		data: {...ownProps}
+		data: {...ownProps},
+		category: state.categories.find(category => category.id === ownProps.category_id),
 	}
 }
 

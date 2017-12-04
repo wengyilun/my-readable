@@ -71,9 +71,9 @@ class App extends Component {
 					    <div className="main-content">
 					    	<Switch>
 								<Route exact path="/" component={Posts} />
-								<Route exact path="/:category/posts" component={CategoriesPage} />
+								<Route exact path="/:category" component={CategoriesPage} />
 								<Route exact path="/posts" component={Posts}/>
-								<Route path="/posts/:postId" component={PostDetail}/>
+								<Route path="/:category/:postId" component={PostDetail}/>
 								<Route component={NotFoundPage}/>
 							</Switch>
 					    </div>

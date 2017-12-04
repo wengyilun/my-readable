@@ -15,7 +15,7 @@ let Tab = ({active, name, filter, count, onTabClick}) => {
 		labelClass =  `tab-${name}-active`
 	}
 	return (
-		<Link to={`/${filter}/posts`}
+		<Link to={`/${filter}`}
 			   className="tabButton"
 		   	   onClick={e => {
 			   onTabClick()
