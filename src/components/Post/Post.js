@@ -34,7 +34,7 @@ let Post = ({dispatch, data, id, title, body, filtered_comments, category_id, ca
 				<FaTrash className="deleteButton" size={20}
 						 onClick={e => {
 							 e.preventDefault()
-							 dispatch(onDeletePost(id))
+							 dispatch(onDeletePost({id}))
 						 }}/>
 			</nav>
 		</aside>

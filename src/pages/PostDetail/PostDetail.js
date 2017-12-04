@@ -30,7 +30,8 @@ class PostDetail extends Component {
 				:
 			 deleted
 				? <div >
-				 	<p className="postMessage">This post has been removed</p>
+				 <Link className='closePostDetail' to='/'>Close</Link>
+				 <p className="postMessage">This post has been removed</p>
 				 </div>
 				:
 			<div>

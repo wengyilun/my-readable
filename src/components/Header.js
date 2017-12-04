@@ -3,12 +3,13 @@
  */
 import React from 'react'
 import SearchBar from './SearchBar'
+import {Link} from 'react-router-dom'
 
 const Header = () => (
 	<div>
 		<header className="headerBar">
 			<div className="logoBar">
-				<h3 className="logo">Mougogo</h3>
+				<Link to="/"><h3 className="logo">Mougogo</h3></Link>
 				<div className="tagline">The animal guardian</div>
 			</div>
 			<nav className="loginBar">

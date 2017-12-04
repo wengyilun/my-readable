@@ -43,7 +43,9 @@ export function postAdded (post){
 }
 
 // DELETE POST
-export function onDeletePost(id){
+export function onDeletePost({id}){
+	console.log(id)
+
 	return dispatch => {
 		return deletePostById(id)
 		.then(post => {

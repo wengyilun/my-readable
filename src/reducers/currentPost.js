@@ -2,7 +2,7 @@ import {
 ON_EDIT_POST,
 ON_VIEW_POST_DETAIL,
 SINGLE_POST_FETCHED,
-SINGLE_POST_FETCHED_FAILED
+DELETE_POST
 } from '../actions/actionTypes'
 
 function currentPost(state=null, action){
@@ -21,7 +21,10 @@ function currentPost(state=null, action){
 			return {
 				...action.post
 			}
-		
+			
+		case DELETE_POST:
+			return {}
+			
 		default:
 			return state
 	}
